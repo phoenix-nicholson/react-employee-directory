@@ -1,4 +1,6 @@
+import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom/cjs/react-router-dom.min';
+import AuthForm from '../../components/AuthForm/AuthForm';
 import { useUser } from '../../context/UserContext';
 import { signInUser, signUpUser } from '../../services/users';
 
@@ -21,5 +23,19 @@ export default function Auth({ isSigningUp = false }) {
       throw error;
     }
   };
-  return;
+  return (
+    <div>
+      <h2>{isSigningUp ? 'Hello!' : 'Hello Again'}</h2>
+      <AuthForm onSubmit={handleSubmit} label={isSigningUp ? 'Sign Up' : 'Sign In'} />
+      {isSigningUp ? (
+        <p>
+          Have an account? <Link to="/login">Sign In</Link>
+        </p>
+      ) : (
+        <p>
+          Need an account? <Link to="/register">Sign Up</Link>
+        </p>
+      )}
+    </div>
+  );
 }

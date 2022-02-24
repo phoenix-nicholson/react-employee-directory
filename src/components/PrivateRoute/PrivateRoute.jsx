@@ -1,5 +1,5 @@
 import { Redirect, Route } from 'react-router-dom/cjs/react-router-dom.min';
-import { useUser } from '../context/UserContext';
+import { useUser } from '../../context/UserContext';
 
 export default function PrivateRoute({ children, ...rest }) {
   const {

@@ -31,14 +31,32 @@ export default function AuthForm({ label, onSubmit }) {
     <form onSubmit={handleSubmit}>
       <p>{label}</p>
       <label>
-        <input type="text" name="email" value={state.email} onChange={handleFormChange} />
+        <input
+          type="text"
+          placeholder="enter email"
+          name="email"
+          value={state.email}
+          onChange={handleFormChange}
+        />
       </label>
 
       <label>
-        <input type="text" name="password" value={state.password} onChange={handleFormChange} />
+        <input
+          type="password"
+          placeholder="enter password"
+          name="password"
+          value={state.password}
+          onChange={handleFormChange}
+        />
+      </label>
+      <label>
+        <input type="date" name="date" />
+      </label>
+      <label>
+        <input type="textarea" name="bio" placeholder="write a bio!" />
       </label>
 
-      <button type="submit">submit</button>
+      <button type="submit">{loading ? 'Loading...' : label}</button>
       {formError && <p>{formError}</p>}
     </form>
   );

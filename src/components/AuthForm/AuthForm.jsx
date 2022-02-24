@@ -31,11 +31,13 @@ export default function AuthForm({ label, onSubmit }) {
     <form onSubmit={handleSubmit}>
       <p>{label}</p>
       <label>
-        <input type="text" name="password" value={state.password} onChange={handleFormChange} />
-      </label>
-      <label>
         <input type="text" name="email" value={state.email} onChange={handleFormChange} />
       </label>
+
+      <label>
+        <input type="text" name="password" value={state.password} onChange={handleFormChange} />
+      </label>
+
       <button type="submit">submit</button>
       {formError && <p>{formError}</p>}
     </form>

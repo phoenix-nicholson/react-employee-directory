@@ -13,7 +13,7 @@ export default function Auth({ isSigningUp = false }) {
     try {
       if (isSigningUp) {
         await signUpUser(email, password);
-        history.push();
+        history.push('/confirm-email');
       } else {
         const resp = await signInUser(email, password);
         setUser({ id: resp.id, email: resp.email });

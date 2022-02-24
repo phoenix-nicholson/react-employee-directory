@@ -8,7 +8,7 @@ export default function Auth({ isSigningUp = false }) {
   const history = useHistory();
   const { setUser } = useUser();
 
-  const handleSubmit = async (email, password) => {
+  const handleLogin = async (email, password) => {
     // eslint-disable-next-line no-useless-catch
     try {
       if (isSigningUp) {
@@ -26,7 +26,7 @@ export default function Auth({ isSigningUp = false }) {
   return (
     <div>
       <h2>{isSigningUp ? 'Hello!' : 'Hello Again'}</h2>
-      <AuthForm onSubmit={handleSubmit} label={isSigningUp ? 'Sign Up' : 'Sign In'} />
+      <AuthForm onSubmit={handleLogin} label={isSigningUp ? 'Sign Up' : 'Sign In'} />
       {isSigningUp ? (
         <p>
           Have an account? <Link to="/login">Sign In</Link>

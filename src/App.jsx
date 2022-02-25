@@ -7,7 +7,7 @@ import { UserProvider } from './context/UserContext';
 import Auth from './views/Auth/Auth';
 import ConfirmEmail from './views/Auth/ConfirmEmail';
 import Home from './views/Home/Home';
-import Profile from './views/Profile/Profile';
+import ProfileForm from './views/Profile/ProfileForm';
 
 function App() {
   return (
@@ -29,7 +29,7 @@ function App() {
               <ConfirmEmail />
             </Route>
             <PrivateRoute path="/profile">
-              <Profile />
+              <ProfileForm />
             </PrivateRoute>
           </Switch>
         </Router>

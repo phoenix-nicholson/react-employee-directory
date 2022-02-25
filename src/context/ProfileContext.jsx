@@ -15,7 +15,10 @@ function ProfileProvider({ children }) {
     const fetchProfile = async () => {
       try {
         const resp = await getProfile();
-        setProfile(resp);
+
+        if (resp.length > 0) {
+          setProfile(resp);
+        }
       } catch (error) {
         setProfile({ name: '', email: '', bio: '', birthday: '' });
       }

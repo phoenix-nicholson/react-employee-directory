@@ -49,12 +49,6 @@ export default function AuthForm({ label, onSubmit }) {
           onChange={handleFormChange}
         />
       </label>
-      <label>
-        <input type="date" name="date" />
-      </label>
-      <label>
-        <input type="textarea" name="bio" placeholder="write a bio!" />
-      </label>
 
       <button type="submit">{loading ? 'Loading...' : label}</button>
       {formError && <p>{formError}</p>}

@@ -4,6 +4,7 @@ import { getProfile } from '../services/profiles';
 const ProfileContext = createContext();
 
 function ProfileProvider({ children }) {
+  const [loading, setLoading] = useState(false);
   const [profile, setProfile] = useState({
     name: '',
     email: '',
@@ -13,6 +14,7 @@ function ProfileProvider({ children }) {
 
   useEffect(() => {
     const fetchProfile = async () => {
+      setLoading(true);
       try {
         const resp = await getProfile();
 
@@ -21,6 +23,8 @@ function ProfileProvider({ children }) {
         }
       } catch (error) {
         setProfile({ name: '', email: '', bio: '', birthday: '' });
+      } finally {
+        setLoading(false);
       }
     };
     fetchProfile();
@@ -29,6 +33,7 @@ function ProfileProvider({ children }) {
   const value = {
     profile,
     setProfile,
+    loading,
   };
 
   return <ProfileContext.Provider value={value}>{children}</ProfileContext.Provider>;

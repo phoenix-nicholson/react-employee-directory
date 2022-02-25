@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useUser } from '../../context/UserContext';
 import { useForm } from '../../hooks/useForm';
 
-export default function Profile({ onSubmit }) {
+export default function ProfileForm({ onSubmit }) {
   const { user } = useUser();
 
   const { handleFormChange, state, formError, setError } = useForm({
@@ -33,10 +33,28 @@ export default function Profile({ onSubmit }) {
       ) : (
         <div>
           <form onSubmit={handleSubmit}>
-            <input type="text" name="name" value={state.name} onChange={handleFormChange} />
-            <input type="text" name="email" value={state.email} onChange={handleFormChange} />
-            <input type="text" name="birthday" value={state.birthday} onChange={handleFormChange} />
-            <input type="text" name="bio" value={state.bio} onChange={handleFormChange} />
+            <input
+              type="text"
+              placeholder="your name"
+              name="name"
+              value={state.name}
+              onChange={handleFormChange}
+            />
+            <input
+              type="text"
+              disabled={true}
+              name="email"
+              value={state.email}
+              onChange={handleFormChange}
+            />
+            <input type="date" name="birthday" value={state.birthday} onChange={handleFormChange} />
+            <input
+              type="text"
+              placeholder="type a bio"
+              name="bio"
+              value={state.bio}
+              onChange={handleFormChange}
+            />
             <button>submit</button>
           </form>
           {formError}

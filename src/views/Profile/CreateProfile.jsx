@@ -2,6 +2,7 @@ import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { useProfile } from '../../context/ProfileContext';
 import { createProfile, updateProfile } from '../../services/profiles';
+import ProfileForm from './ProfileForm';
 
 export default function CreateProfile({ isCreatingProfile = false }) {
   const history = useHistory();
@@ -32,7 +33,8 @@ export default function CreateProfile({ isCreatingProfile = false }) {
     <>
       {isCreatingProfile ? 'Create new profile' : 'Edit your profile'}
       <div>
-        <CreateProfile onSubmit={handleProfile} />
+        <h1>Your Profile</h1>
+        <ProfileForm onSubmit={handleProfile} />
       </div>
     </>
   );

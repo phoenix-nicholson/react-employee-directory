@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useState } from 'react';
 import { getProfile } from '../services/profiles';
 
 const ProfileContext = createContext();
@@ -26,9 +26,10 @@ function ProfileProvider({ children }) {
     fetchProfile();
   }, []);
 
-  const value = useMemo(() => {
-    profile, setProfile;
-  }, [profile]);
+  const value = {
+    profile,
+    setProfile,
+  };
 
   return <ProfileContext.Provider value={value}>{children}</ProfileContext.Provider>;
 }
